@@ -1,0 +1,115 @@
+Q0
+
+def solution(a, b):
+    for i in range(1,b+1):
+        if (a%i) == 0 and (b%i) == 0:
+            answer = i
+    return answer
+
+a = int(input('정수 입력 : '))
+b = int(input('정수 입력 : '))
+if a > b:
+    a,b = b,a
+c = solution(a,b)
+print(f'최대 공약수 : {c}')
+------------------------------------------------
+Q1
+
+def solution(a, b):
+    for i in range(b,(a*b)+1):
+        if (i%a) == 0 and (i%b) == 0:
+            answer = i
+            break
+    return answer
+
+a = int(input('정수 입력 : '))
+b = int(input('정수 입력 : '))
+if a > b:
+    a,b = b,a
+c = solution(a,b)
+print(f'최소 공배수 : {c}')
+------------------------------------------------
+Q2
+
+while True:
+    n = input('정수 입력 : ')
+    if  0 <= int(n) and int(n) < 99:
+        break
+
+if int(n) < 10:
+    n = '0'+n
+number = n
+count = 0
+while True:
+    a = number[1]
+    b = str(int(number[0]) + int(number[1]))
+    if int(b) >= 10:
+        b = b[1]
+    number = str(a) + str(b)
+    count += 1
+    if number == n:
+        break
+        
+print(count)
+-----------------------------------------------------
+Q3
+
+def solution(left, right):
+    num = 0
+    answer = 0
+    for i in range(left,right+1):
+        for j in range(1,i+1):
+            if i%j == 0:
+                num += 1
+        if num % 2 == 0:
+            answer += i
+        else:
+            answer -= i
+        num = 0
+    return answer
+
+left = 13
+right = 17
+c = solution(left, right)
+print(c)
+--------------------------------------------------------
+Q4
+
+data = input('숫자로 이루어진 문자열을 입력하세요. ')
+result = int(data[0]);
+
+for i in range(1 , len(data)):
+    if int(data[i])>1 and result != 0:
+        result *= int(data[i])
+    else:
+        result += int(data[i])
+print(result)
+-----------------------------------------------------------
+Q5
+
+n = input('숫자를 입력하세요. ')
+a = 0
+b = 0
+
+for i in range(0,len(n)):
+    if len(n)/2 > i:
+        a += int(n[i])
+    else:
+        b += int(n[i])
+
+if a == b:
+    print("LUCKY")
+else:
+    print("READY")
+------------------------------------------------------------
+Q6
+
+def solution(n):
+    for i in range(1,n):
+        sum1 = i*i
+        if n == sum1:
+            sqrt = i
+            answer = (i+1)*(i+1)
+            return answer
+    return -1
+print(solution(121))
